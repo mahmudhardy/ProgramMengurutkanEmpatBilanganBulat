@@ -16,6 +16,29 @@
             <input variable="x2"/>
             <input variable="x3"/>
             <input variable="x4"/>
+            <declare name="angka" type="Integer" array="True" size="4"/>
+            <declare name="temp" type="Integer" array="False" size=""/>
+            <assign variable="temp" expression="0"/>
+            <assign variable="angka[0]" expression="x1"/>
+            <assign variable="angka[1]" expression="x2"/>
+            <assign variable="angka[2]" expression="x3"/>
+            <assign variable="angka[3]" expression="x4"/>
+            <declare name="i, j" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="4" direction="inc" step="1">
+                <for variable="j" start="i+1" end="3" direction="inc" step="1">
+                    <if expression="angka[i] &lt; angka[j]">
+                        <then>
+                            <assign variable="temp" expression="angka[i]"/>
+                            <assign variable="angka[i]" expression="angka[j]"/>
+                            <assign variable="angka[j]" expression="temp"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </for>
+            <for variable="i" start="0" end="4" direction="inc" step="1">
+                <output expression="angka[i]" newline="True"/>
+            </for>
         </body>
     </function>
 </flowgorithm>
